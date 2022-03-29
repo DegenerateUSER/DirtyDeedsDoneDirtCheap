@@ -1,18 +1,11 @@
 FROM anasty17/mltb:latest
 
-WORKDIR /usr/src/RailwayFuckYou
-
-RUN chmod 777 /usr/src/RailwayFuckYou
+WORKDIR /usr/src/app
+RUN chmod 777 /usr/src/app
 
 RUN git clone https://github.com/degenerateuser/kingcrimson
 
-RUN apt get update && upgrade
-
-RUN apt install sudo
-
-RUN echo "Sudo :- it's ON"
-
-RUN sudo apt install wget curl
+COPY requirements.txt .
 
 RUN pip3 install --no-cache-dir -r requirements.txt
 
